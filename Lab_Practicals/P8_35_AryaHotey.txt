@@ -1,0 +1,544 @@
+10/15/24, 4:14 PM
+
+Single Layer Perceptron
+
+Ipip install tensorflow
+
+3y Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+Requirement
+
+4
+
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+already
+
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+satisfied:
+
+# Import necessary libraries
+import numpy as np
+
+import pandas as
+
+pd
+
+import tensorflow as tf
+import matplotlib.pyplot as pl1t
+from tensorflow.keras.models import Sequential
+
+from tensorflow.keras.layers import Dense
+
+from sklearn.datasets import load_iris
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+P8_35_AryaHotey.ipynb - Colab
+
+tensorflow in /usr/local/lib/python3.10/dist-packages (2.17.0)
+
+absl-py>=1.0.@ in /usr/local/lib/python3.10/dist-packages (from tensorflow) (1.4.8)
+
+astunparse>=1.6.@ in /usr/local/lib/python3.16/dist-packages (from tensorflow) (1.6.3)
+flatbuffers>=24.3.25 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (24.3.25)
+
+gast!=0.5.0, !=-0.5.1,!=-@.5.2,>=0.2.1 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (0.6.0)
+google-pasta>=0.1.1 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (@.2.9)
+
+h5py>=3.10.@ in /usr/local/lib/python3.16/dist-packages (from tensorflow) (3.11.6)
+
+libclang>=13.0.@ in /usr/local/lib/python3.10/dist-packages (from tensorflow) (18.1.1)
+ml-dtypes<@.5.0,>=8.3.1 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (@.4.1)
+opt-einsum>=2.3.2 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (3.4.0)
+
+packaging in /usr/local/1lib/python3.16/dist-packages (from tensorflow) (24.1)
+
+protobuf!=4.21.@, !=4.21.1, !=4.21.2, [=4.21.3, !=4.21.4, !=4.21.5,<5.0.@dev, >=3.20.3 in /usr/local/lib/python
+requests<3,>=2.21.@ in /usr/local/lib/python3.10/dist-packages (from tensorflow) (2.32.3)
+
+setuptools in /usr/local/lib/python3.16/dist-packages (from tensorflow) (71.0.4)
+
+$ix>=1.12.@ in /usr/local/lib/python3.10/dist-packages (from tensorflow) (1.16.0)
+
+termcolor>=1.1.@ in /usr/local/lib/python3.10/dist-packages (from tensorflow) (2.5.4)
+typing-extensions>=3.6.6 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (4.12.2)
+wrapt>=1.11.0 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (1.16.8)
+
+grpceio<2.0,>=1.24.3 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (1.64.1)
+tensorboard<2.18,>=2.17 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (2.17.6)
+keras>=3.2.0 in /usr/local/lib/python3.1@/dist-packages (from tensorflow) (3.4.1)
+tensorflow-io-gcs-filesystem>=0.23.1 in /usr/local/lib/python3.10/dist-packages (from tensorflow) (6.37.1
+numpy<2.8.@,>=1.23.5 in /usr/local/lib/python3.16/dist-packages (from tensorflow) (1.26.4)
+wheel<1.0,>=@.23.@ in /usr/local/lib/python3.10/dist-packages (from astunparse>=1.6.0->tensorflow) (0.44.
+rich in /usr/local/lib/python3.10/dist-packages (from keras>=3.2.0->tensorflow) (13.9.2)
+
+namex in /usr/local/lib/python3.10/dist-packages (from keras>=3.2.0->tensorflow) (@.0.8)
+
+optree in /usr/local/lib/python3.10/dist-packages (from keras>=3.2.@->tensorflow) (@.13.@)
+charset-normalizer<4,>=2 in /usr/local/lib/python3.1@/dist-packages (from requests<3, >=2.21.0->tensorflon
+idna<4,>=2.5 in /usr/local/lib/python3.16/dist-packages (from requests<3,>=2.21.@->tensorflow) (3.18)
+urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests<3,>=2.21.8->tensorflow) (2.2
+certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests<3,>=2.21.0->tensorflow) (202
+markdown>=2.6.8 in /usr/local/lib/python3.10/dist-packages (from tensorboard<2.18,>=2.17->tensorflow) (3.
+tensorboard-data-server<®.8.0,>=@.7.@ in /usr/local/lib/python3.1@/dist-packages (from tensorboard<2.18,>
+werkzeug>=1.6.1 in /usr/local/lib/python3.16/dist-packages (from tensorboard<2.18,>=2.17->tensorflow) (3.
+MarkupSafe>=2.1.1 in /usr/local/1ib/python3.16/dist-packages (from werkzeug>=1.0.1->tensorboard<2.18, >=2.
+markdown-it-py>=2.2.0 in /usr/local/lib/python3.10/dist-packages (from rich->keras>=3.2.0->tensorflow) (3
+pygments<3.@.0,>=2.13.@ in /usr/local/1ib/python3.10/dist-packages (from rich->keras>=3.2.6->tensorflow)
+mdurl~=@.1 in /usr/local/1lib/python3.10/dist-packages (from markdown-it-py>=2.2.@->rich->keras>=3.2.0->te
+
+»
+
+df = pd.read_csv("/content/titanic_cleaned.csv")
+
+X = df.drop( Survived" ,axis=1)
+
+y = df['Survived'
+
+]
+
+X_train,xX_test,y_train,y_test = train_test_split(X,y,test_size=@.2,random_state=42)
+
+X_train.shape
+
+Sy (712, 3)
+
+X_test.shape
+
+Sy (179, 3)
+
+y_train.shape
+
+Sy (712,)
+
+https://colab.research.google.com/drive/1SZx07PNediLTT21rF--hxMj1gTUSmwpR#scrollTo=gRycINQYmfGa&printMode=true 116
+10/15/24, 4:14 PM P8_35_AryaHotey.ipynb - Colab
+
+y_test.shape
+
+(179,)
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+model = Sequential([Dense(1, input_dim=X_train.shape[1], activation="sigmoid')])
+
+/usr/local/lib/python3.10/dist-packages/keras/src/layers/core/dense.py:87: UserWarning: Do not pass an ~input_shape’/~input_dim’ argumen
+super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+
+model.compile(optimizer="adam', loss="binary_crossentropy', metrics=['accuracy‘ ])
+
+# Train the model
+model.fit(x_train, y_train, epochs=100, batch_size=10, verbose=1)
+
+72/22 ———————
+Epoch 73/100
+
+2? __——_ 8s 2ms/step - accuracy: @.8109 - loss: @.4251
+Epoch 74/100
+
+2? —_— 8s 2ms/step - accuracy: 6.7857 - loss: @.4457
+Epoch 75/100
+
+2ms/step - accuracy: 0.7874 - loss: @.4411 a
+
+72f72. ——————_ 2s 3ms/step - accuracy: 6.7857 - loss: @.4665
+Epoch 76/100
+72/72 ——————— @s 3ms/step - accuracy: 0.8085 - loss: @.4517
+Epoch 77/100
+72/72 ———— @s 3ms/step - accuracy: 0.7694 - loss: 9.4903
+
+Epoch 78/100
+2f?2-—_——— 4:
+Epoch 79/166
+72/72 ————_
+Epoch 80/166
+
+3ms/step - accuracy: 6.7694 - loss: @.4935
+
+3ms/step - accuracy: 0.8048 - loss: @.4444
+
+722/72 ————————_ 9s 3ms/step - accuracy: 0.8061 - loss: @.4464
+Epoch 81/106
+2/2 —_—_—_—_——————_ 9s 3ms/step - accuracy: 8.7666 - loss: @.4704
+Epoch 82/106
+2? -_—_ 2s 2ms/step - accuracy: 9.7793 - loss: @.4676
+Epoch 83/100
+72/72 ——— 9s 3ms/step - accuracy: 8.7779 - loss: @.4657
+Epoch 84/160
+72/72. ———— 9s 2ms/step - accuracy: 8.7893 - loss: @.4534
+
+Epoch 85/106
+22 —_—_————————————— 3:
+Epoch 86/100
+
+ims/step - accuracy: 6.8144 - loss: 6.4454
+
+72/72 ————————— @s 1ms/step - accuracy: 0.7650 - loss: @.4899
+Epoch 87/100
+2? __——— 8s 2ms/step - accuracy: @.7831 - loss: @.4611
+Epoch 88/100
+2? —_— es Ims/step - accuracy: 6.7719 - loss: @.4975
+
+Epoch 89/100
+72/2 —— 4:
+Epoch 98/100
+
+2ms/step - accuracy: @.7917 - loss: @.4498
+
+72/72 —————_ @s 1ms/step - accuracy: @.7938 - loss: 9.4673
+Epoch 91/166
+72/72 ——————— @s 1ms/step - accuracy: 8.7957 - loss: @.4452
+
+Epoch 92/106
+72/2——————————— 2:
+Epoch 93/106
+72/72 ———_
+Epoch 94/106
+722/22 ————————————— 3:
+Epoch 95/106
+72/2———————————— 2:
+Epoch 96/100
+72/22 ———————
+Epoch 97/100
+
+2ms/step - accuracy: 8.7725 - loss: @.4714
+
+ims/step - accuracy: 6.8002 - loss: @.4536
+
+w
+
+2ms/step - accuracy: 6.7982 - loss: @.4128
+
+ims/step - accuracy: 0.7841 - loss: @.4563
+
+2ms/step - accuracy: 0.7939 - loss: 8.4476
+
+72/72 ——— @s 1ms/step - accuracy: 9.8129 - loss: @.4280
+Epoch 98/160
+72/72 ————— 9s 2ms/step - accuracy: 0.7833 - loss: 6.4763
+
+Epoch 99/100
+
+222 -_——————_ 9s 1Ims/step - accuracy: 0.8021 - loss: @.4610
+
+Epoch 100/100
+
+72/72 —————— @s 2ms/step - accuracy: 0.7813 - loss: @.4707
+
+<keras.src.callbacks.history.History at @x7adcbc3d4460> Vv
+
+https://colab.research.google.com/drive/1SZx07PNediLTT21rF--hxMj1gTUSmwpR#scrollTo=gRycINQYmfGa&printMode=true 216
+10/15/24, 4:14 PM P8_35_AryaHotey.ipynb - Colab
+
+# Evaluate the model on test data
+loss, accuracy = model.evaluate(X_test, y_test)
+print(#'Test Accuracy: {accuracy*1@0:.2f}%')
+
+6/6 ———_ @s 3ms/step - accuracy: 0.8217 - loss: @.4159
+Test Accuracy: 81.01%
+
+def sigmoid(x):
+return 1 / (1 + np.exp(-x))
+
+class Perceptron:
+def __init_(self, weights, bias):
+self.weights = weights
+self.bias = bias
+
+def predict(self, inputs):
+# Calculate weighted sum
+z = np.dot(inputs, self.weights) + self.bias
+# Apply sigmoid activation function
+return sigmoid(z)
+
+# Input for AND, OR gates (binary input pairs)
+inputs = np.array{[[@, @], [@, 1], [1, @], [1, 1]])
+
+# Input for NOT gate (single binary input)
+inputs_not = np.array([[@], [1]])
+
+# AND gate weights and bias (both inputs need to be 1 to output 1)
+weights_and = np.array([1, 1])
+bias_and = 1 # Adjusting for threshold
+
+# OR gate weights and bias (one input being 1 is enough for output 1)
+weights_or = np.array([@, 1])
+bias_or = 1 # Adjusting for threshold
+
+# NOT gate weights and bias (single input)
+weights_not = np.array([1])
+bias_not = 1 # Adjusting for threshold
+
+perceptron_and = Perceptron(weights_and, bias_and)
+perceptron_or = Perceptron(weights_or, bias_or)
+perceptron_not = Perceptron(weights_not, bias_not)
+
+# AND gate results
+
+print("AND Gate")
+
+for x in inputs:
+output = perceptron_and.predict (x)
+print(f"Input: {x}, Output: {round(output)}")
+
+AND Gate
+
+Input: [@ @], Output:
+Input: [@ 1], Output:
+Input: [1 @], Output:
+Input: [1 1], Output:
+
+FOO o
+
+# OR gate results
+
+print("\nOR Gate")
+
+for x in inputs:
+output = perceptron_or.predict(x)
+print(f"Input: {x}, Output: {round(output)}")
+
+OR Gate
+
+Input: [@ @], Output:
+Input: [@ 1], Output:
+Input: [1 @], Output:
+Input: [1 1], Output:
+
+BPR Oo
+
+https://colab.research.google.com/drive/1SZx07PNediLTT21rF--hxMj1gTUSmwpR#scrollTo=gRycINQYmfGa&printMode=true 3/6
+10/15/24, 4:14 PM P8_35_AryaHotey.ipynb - Colab
+
+# NOT gate results
+
+print("\nNOT Gate")
+
+for x in inputs_not:
+output = perceptron_not.predict (x)
+print(f"Input: {x}, Output: {round(output)}")
+
+NOT Gate
+Input: [@], Output: 1
+Input: [1], Output: @
+
+def plot_logic_gate(inputs, outputs, gate_name):
+# Define figure
+plt.figure(figsize=(5, 5))
+
+# Plot the points: Red for @ output, Green for 1 output
+for i, point in enumerate(inputs):
+if outputs[i] == @:
+plt.scatter(point[@], point[1] if len(point) > 1 else @, color='red', label="Output @' if i == ® else "")
+else:
+plt.scatter(point[@], point[1] if len(point) > 1 else 8, color='green', label="Output 1' if i == @ else "")
+
+# Set plot details
+plt.title(f'{gate_name} Gate')
+plt.xlabel(‘Input 1')
+if len(inputs[@]) > 1:
+plt.ylabel(‘Input 2')
+else:
+plt.yticks([@]}
+plt.xlim(-@.1, 1.1)
+plt.ylim(-@.1, 1.1)
+plt.grid(True)
+plt.legend()
+plt.show()
+
+# AND Gate
+print("AND Gate")
+and_outputs = []
+for x in inputs:
+output = round(perceptron_and.predict(x))
+and_outputs. append (output)
+print(f"Input; {x}, Output: {output}")
+plot_logic_gate(inputs, and_outputs, "AND")
+
+AND Gate
+
+Input: [@ @], Output: @
+Input: [@ 1], Output: @
+Input: [1 @], Output: @
+Input: [1 1], Output: 1
+AND Gate
+@ Outputo
+104 o—
+0.8
+0.6
+nN
+5
+a
+f=
+0.4
+0.2
+“LI ill
+T T
+0.0 0.2 04 0.6 0.8 1.0
+Input 1
+
+https://colab.research.google.com/drive/1SZx07PNediLTT21rF--hxMj1gTUSmwpR#scrollTo=gRycINQYmfGa&printMode=true
+
+4/16
+10/15/24, 4:14 PM P8_35_AryaHotey.ipynb - Colab
+# OR Gate
+print("\nOR Gate")
+or_outputs = []
+for x in inputs:
+output = round(perceptron_or.predict(x))
+or_outputs. append (output)
+print(f"Input: {x}, Output: {output}")
+plot_logic_gate(inputs, or_outputs, "OR")
+
+OR Gate
+Input: [@ @], Output: @
+Input: [@ 1], Output: 1
+Input: [1 @], Output: 1
+Input: [1 1], Output: 1
+OR Gate
+| @ Outputo
+1.04 +
+0.8 5
+0.67
+Nn
+5
+a
+=
+0.45
+0.27
+T T T T T T
+0.0 0.2 0.4 0.6 0.38 1.0
+Input 1
+# NOT Gate
+
+print("\nNOT Gate")
+not_outputs = []
+for x in inputs_not:
+output = round(perceptron_not.predict(x))
+not_outputs. append (output)
+print(f"Input: {x}, Output: {output}")
+# For NOT gate, we only plot single input
+plot_logic_gate(inputs_not, not_outputs, "NOT")
+
+https://colab.research.google.com/drive/1SZx07PNediLTT21rF--hxMj1gTUSmwpR#scrollTo=gRycINQYmfGa&printMode=true 5/6
+10/15/24, 4:14 PM P8_35_AryaHotey.ipynb - Colab
+
+NOT Gate
+Input: [@], Output: 1
+Input: [1], Output: @
+
+NOT Gate
+
+@® Output1
+
+https://colab.research.google.com/drive/1SZx07PNediLTT21rF--hxMj1gTUSmwpR#scrollTo=gRycINQYmfGa&printMode=true 6/6
